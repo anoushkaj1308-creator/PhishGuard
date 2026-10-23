@@ -1,0 +1,106 @@
+{
+  "dataset_rows_after_cleaning": 235370,
+  "train_rows": 188296,
+  "test_rows": 47074,
+  "label_mapping": {
+    "0": "phishing",
+    "1": "legitimate"
+  },
+  "split": "80/20 stratified random URL-level split; random_state=42",
+  "limitations": [
+    "URLs from the same domain can occur in both partitions.",
+    "Random split scores may overstate performance on unseen domains or future URLs.",
+    "The model inspects URL text only; it does not fetch pages, redirects, certificates, or reputation data.",
+    "Probability scores are model estimates, not calibrated guarantees.",
+    "A false positive or false negative is possible."
+  ],
+  "baseline": {
+    "model": "Most-frequent baseline",
+    "accuracy": 0.5729277308068148,
+    "precision_phishing_label_0": 0.0,
+    "recall_phishing_label_0": 0.0,
+    "f1_phishing_label_0": 0.0,
+    "confusion_matrix_labels_order_0_then_1": [
+      [
+        0,
+        20104
+      ],
+      [
+        0,
+        26970
+      ]
+    ],
+    "classification_report": {
+      "phishing (0)": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 20104.0
+      },
+      "legitimate (1)": {
+        "precision": 0.5729277308068148,
+        "recall": 1.0,
+        "f1-score": 0.7284857652206796,
+        "support": 26970.0
+      },
+      "accuracy": 0.5729277308068148,
+      "macro avg": {
+        "precision": 0.2864638654034074,
+        "recall": 0.5,
+        "f1-score": 0.3642428826103398,
+        "support": 47074.0
+      },
+      "weighted avg": {
+        "precision": 0.32824618472744604,
+        "recall": 0.5729277308068148,
+        "f1-score": 0.4173696963929501,
+        "support": 47074.0
+      }
+    }
+  },
+  "model": {
+    "model": "Character n-gram + lexical SGD classifier",
+    "accuracy": 0.9953689934995964,
+    "precision_phishing_label_0": 0.9998491856022521,
+    "recall_phishing_label_0": 0.9893056108237167,
+    "f1_phishing_label_0": 0.9945494549454945,
+    "confusion_matrix_labels_order_0_then_1": [
+      [
+        19889,
+        215
+      ],
+      [
+        3,
+        26967
+      ]
+    ],
+    "classification_report": {
+      "phishing (0)": {
+        "precision": 0.9998491856022521,
+        "recall": 0.9893056108237167,
+        "f1-score": 0.9945494549454945,
+        "support": 20104.0
+      },
+      "legitimate (1)": {
+        "precision": 0.9920903539106762,
+        "recall": 0.999888765294772,
+        "f1-score": 0.9959742945782243,
+        "support": 26970.0
+      },
+      "accuracy": 0.9953689934995964,
+      "macro avg": {
+        "precision": 0.9959697697564642,
+        "recall": 0.9945971880592444,
+        "f1-score": 0.9952618747618593,
+        "support": 47074.0
+      },
+      "weighted avg": {
+        "precision": 0.9954039357674856,
+        "recall": 0.9953689934995964,
+        "f1-score": 0.995365785083038,
+        "support": 47074.0
+      }
+    },
+    "roc_auc_legitimate_class_1": 0.9987428737269941
+  }
+}
